@@ -8,7 +8,7 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-class Book(models.model):
+class Book(models.Model):
     title =  models.CharField(max_length=100, blank=False)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
@@ -20,4 +20,4 @@ class Edition(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.year}"
+        return f"{self.book} Edition: {self.year}"
